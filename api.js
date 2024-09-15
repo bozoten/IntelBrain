@@ -1,6 +1,8 @@
 const express = require('express');
 
-const bodyparser = require("body-parser");
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const app = express();
 
@@ -12,7 +14,7 @@ const {
     HarmBlockThreshold,
   } = require("@google/generative-ai");
   
-  const apiKey = "YOUR_API_KEY_HERE";
+  const apiKey = process.env.GEMINI_API_KEY;
   const genAI = new GoogleGenerativeAI(apiKey);
   
   const model = genAI.getGenerativeModel({
