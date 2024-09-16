@@ -4,7 +4,7 @@ const {
     HarmBlockThreshold,
   } = require("@google/generative-ai");
   
-  const apiKey = "";
+  const apiKey = "YOUR_API_KEY";
   const genAI = new GoogleGenerativeAI(apiKey);
   
   const model = genAI.getGenerativeModel({
@@ -22,8 +22,6 @@ const {
   async function run() {
     const chatSession = model.startChat({
       generationConfig,
-   // safetySettings: Adjust safety settings
-   // See https://ai.google.dev/gemini-api/docs/safety-settings
       history: [
       ],
     });
