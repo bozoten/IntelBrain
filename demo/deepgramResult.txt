@@ -1,0 +1,191 @@
+{
+  metadata: {
+    transaction_key: '',
+    request_id: '',
+    sha256: '',
+    created: '2024-09-16T00:11:05.927Z',
+    duration: 18.965376,
+    channels: 1,
+    models: [ '' ],
+    model_info: {
+      '': {
+        name: '2-general-nova',
+        version: '2024-01-09.29447',
+        arch: 'nova-2'
+      }
+    }
+  },
+  results: {
+    channels: [
+      {
+        alternatives: [
+          {
+            transcript: "Hello. This is a testing file, and these are some words I have, vector and rock, ruby, robots that's it.",
+            confidence: 0.957705,
+            words: [
+              {
+                word: 'hello',
+                start: 0.71999997,
+                end: 1.22,
+                confidence: 0.978464,
+                punctuated_word: 'Hello.'
+              },
+              {
+                word: 'this',
+                start: 2.8799999,
+                end: 3.1999998,
+                confidence: 0.957705,
+                punctuated_word: 'This'
+              },
+              {
+                word: 'is',
+                start: 3.1999998,
+                end: 3.28,
+                confidence: 0.9968533,
+                punctuated_word: 'is'
+              },
+              {
+                word: 'a',
+                start: 3.28,
+                end: 3.4399998,
+                confidence: 0.6299927,
+                punctuated_word: 'a'
+              },
+              {
+                word: 'testing',
+                start: 3.4399998,
+                end: 3.9199998,
+                confidence: 0.99534863,
+                punctuated_word: 'testing'
+              },
+              {
+                word: 'file',
+                start: 3.9199998,
+                end: 4.42,
+                confidence: 0.8535763,
+                punctuated_word: 'file,'
+              },
+              {
+                word: 'and',
+                start: 4.48,
+                end: 4.98,
+                confidence: 0.9303494,
+                punctuated_word: 'and'
+              },
+              {
+                word: 'these',
+                start: 5.92,
+                end: 6.16,
+                confidence: 0.99777955,
+                punctuated_word: 'these'
+              },
+              {
+                word: 'are',
+                start: 6.16,
+                end: 6.3999996,
+                confidence: 0.9998555,
+                punctuated_word: 'are'
+              },
+              {
+                word: 'some',
+                start: 6.3999996,
+                end: 6.8999996,
+                confidence: 0.99977785,
+                punctuated_word: 'some'
+              },
+              {
+                word: 'words',
+                start: 7.2799997,
+                end: 7.68,
+                confidence: 0.8471114,
+                punctuated_word: 'words'
+              },
+              {
+                word: 'i',
+                start: 7.68,
+                end: 7.8399997,
+                confidence: 0.99654764,
+                punctuated_word: 'I'
+              },
+              {
+                word: 'have',
+                start: 7.8399997,
+                end: 8.34,
+                confidence: 0.7387668,
+                punctuated_word: 'have,'
+              },
+              {
+                word: 'vector',
+                start: 8.559999,
+                end: 9.059999,
+                confidence: 0.95973647,
+                punctuated_word: 'vector'
+              },
+              {
+                word: 'and',
+                start: 11.2,
+                end: 11.599999,
+                confidence: 0.6346243,
+                punctuated_word: 'and'
+              },
+              {
+                word: 'rock',
+                start: 11.599999,
+                end: 12.099999,
+                confidence: 0.92588836,
+                punctuated_word: 'rock,'
+              },
+              {
+                word: 'ruby',
+                start: 12.639999,
+                end: 13.139999,
+                confidence: 0.89813304,
+                punctuated_word: 'ruby,'
+              },
+              {
+                word: 'robots',
+                start: 15.350375,
+                end: 15.850375,
+                confidence: 0.99500114,
+                punctuated_word: 'robots'
+              },
+              {
+                word: "that's",
+                start: 17.510376,
+                end: 17.750376,
+                confidence: 0.7113637,
+                punctuated_word: "that's"
+              },
+              {
+                word: 'it',
+                start: 17.750376,
+                end: 18.250376,
+                confidence: 0.83719975,
+                punctuated_word: 'it.'
+              }
+            ],
+            paragraphs: {
+              transcript: '\n' +
+                "Hello. This is a testing file, and these are some words I have, vector and rock, ruby, robots that's it.",
+              paragraphs: [
+                {
+                  sentences: [
+                    { text: 'Hello.', start: 0.71999997, end: 1.22 },
+                    {
+                      text: "This is a testing file, and these are some words I have, vector and rock, ruby, robots that's it.",
+                      start: 2.8799999,
+                      end: 18.250376
+                    }
+                  ],
+                  num_words: 20,
+                  start: 0.71999997,
+                  end: 18.250376
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
