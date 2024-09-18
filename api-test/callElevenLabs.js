@@ -1,4 +1,4 @@
-const { createAudioFileFromText } = require('../provider-scripts/elevenlabs');
+const { createAudioFileFromText } = require('../api-util/functions/elevenlabs');
 
 (async () => {
   try {

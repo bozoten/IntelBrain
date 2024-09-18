@@ -1,10 +1,34 @@
 fetch('http://localhost:3000/api/data', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ currenstate: 'RETURN ONLY JSON & DONT HALLUCINATE MAKE IT EXTRA ACCURATE, CALCULATE WITH MATH RETURN ONLY JSON. distance to obstacle 2 meters, current speed is 1km/hr. destination is 175 degrees from the current direction the current angle is 0 degrees. generate 20 step action sequence to reach destination in JSON the values should be the function, current, angle of vehicle (start with 0), & speed in a scale of 1-10. each turns the vehicle 15 degrees to whatever direction u choose. executable functions are move_forward, move_right, move_left, break, reverse.', age: 30 }),
-  })
-  .then(response => response.json())
-  .then(data => console.log('Success:', data))
-  .catch((error) => console.error('Error:', error));
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    currenstate: 'return only a response to his prompt. youre an ai robot assistant to an engineer called pavel. youre personality is that of an energetic, japanese idol who speaks english. hes youre boss. his prompt: hey ruby i just woke up. whats going on today? (this is a test write a daily update like an assistant)',
+    age: 30
+  }),
+})
+.then(response => {
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+  return response.blob();
+})
+.then(blob => {
+  // Create a URL for the blob
+  const url = window.URL.createObjectURL(blob);
+  
+  // Create an audio element and play the file
+  const audio = new Audio(url);
+  audio.play();
+  
+  // Optionally, create a download link
+  const a = document.createElement('a');
+  a.style.display = 'none';
+  a.href = url;
+  a.download = 'response.mp3';
+  document.body.appendChild(a);
+  a.click();
+  window.URL.revokeObjectURL(url);
+})
+.catch((error) => console.error('Error:', error));
