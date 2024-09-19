@@ -1,8 +1,16 @@
 const { createAudioFileFromText } = require('./api-util/functions/elevenlabs');
+const { transcribeFile } = require('./api-util/functions/deepgram');
 const express = require('express');
 const dotenv = require('dotenv');
 const fs = require('fs');
 dotenv.config();
+
+const {createClient} = require('@deepgram/sdk');
+
+const multer = require('multer');
+
+const upload = multer({dest: 'uploads/'});
+
 
 const app = express();
 app.use(express.json());
@@ -12,6 +20,11 @@ const {
   HarmCategory,
   HarmBlockThreshold,
 } = require("@google/generative-ai");
+
+
+const dgApiKey = process.env.DEEPGRAM_API_KEY;
+
+const deepgram = createClient(dgApiKey)
 
 const apiKey = process.env.GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(apiKey);
@@ -42,10 +55,24 @@ async function generate(state) {
   return result.response.text();
 }
 
-app.post('/api/data', async (req, res) => {
+app.post('/api/data', upload.single('audio'), async (req, res) => {
   try {
-    const receivedData = req.body;
-    const data = JSON.stringify(receivedData);
+
+    const file = req.file;
+
+    const transcription = await deepgram.listen.prerecorded.transcribeFile(
+      fs.readFileSync(file.path),
+      {
+        smart_format: true,
+        model: 'nova-2',
+        language: 'en-IN'
+      });
+
+    fs.unlinkSync(file.path);
+    const receivedData = transcription;
+    console.log(receivedData);
+    const systemPrompt = "you are no longer gemini from now you're ruby. users speech to text is in the transcript in the following json file:"
+    const data = systemPrompt + JSON.stringify(receivedData);
     const text = await generate(data);
     const audioFilePath = await createAudioFileFromText(text);
     
@@ -71,7 +98,7 @@ app.post('/api/data', async (req, res) => {
   }
 });
 
-const PORT = 3000;
+const PORT = 8000;
 app.listen(PORT, () => {
   console.log(`The Server is running on port ${PORT}`);
 });
