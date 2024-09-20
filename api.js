@@ -55,6 +55,11 @@ async function generate(state) {
   return result.response.text();
 }
 
+app.post('/hello', (req, res) => {
+  res.send(req.body);
+});
+
+
 app.post('/api/data', upload.single('audio'), async (req, res) => {
   try {
 
@@ -97,6 +102,8 @@ app.post('/api/data', upload.single('audio'), async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+
 
 const PORT = 8000;
 app.listen(PORT, () => {

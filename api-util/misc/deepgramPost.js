@@ -1,6 +1,6 @@
 const express = require('express');
 const multer = require('multer');
-const { transcribeFile } = require('./api-util/functions/deepgram');  // Import your function
+const { transcribeFile } = require('../functions/deepgram');  // Import your function
 
 const app = express();
 const upload = multer();  // Using memory storage, file will be stored in memory buffer
