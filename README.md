@@ -22,7 +22,7 @@ Intel Brain is a powerful Node.js Express API that enables seamless control and 
 2. **Install dependencies:**
 
     ```bash
-    npm install
+    npm install @deepgram/sdk @google/generative-ai express dotenv elevenlabs multer
     ```
 
 3. **Set up environment variables:**
@@ -30,17 +30,18 @@ Intel Brain is a powerful Node.js Express API that enables seamless control and 
     Create a `.env` file in the project root and add your API keys:
 
     ```plaintext
-    DEEPGRAM_API_KEY=your_deepgram_api_key
-    GOOGLE_GEN_AI_KEY=your_google_gen_ai_key
+    GEMINI_API_KEY=
+    DEEPGRAM_API_KEY=
+    ELEVENLABS_API_KEY=
     ```
 
 4. **Run the server:**
 
     ```bash
-    node server.js
+    node api.js
     ```
 
-    The API will now be running locally on `http://localhost:3000`.
+    The API will now be running locally on `http://localhost:8000`.
 
 ## Sending POST Requests from Arduino, ESP32, and Raspberry Pi
 
@@ -88,4 +89,15 @@ void setup() {
 void loop() {
   // Add any looping functionality here
 }
+```
+You can send HTTP POST requests from Raspberry Pi to interact with the API using the request package. Here’s an example of a python script.
+```python
+import requests
 
+url = 'http://your-server-ip:3000/robot-control'
+data = {'command': 'move forward'}
+response = requests.post(url, json=data)
+
+print(response.text)
+
+```
