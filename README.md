@@ -15,7 +15,7 @@ Intel Brain is a powerful Node.js Express API that enables seamless control and 
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/yourusername/intel-brain.git
+    git clone https://github.com/bozoten/IntelBrain.git
     cd intel-brain
     ```
 
