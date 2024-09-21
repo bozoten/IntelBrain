@@ -21,7 +21,6 @@ const {
   HarmBlockThreshold,
 } = require("@google/generative-ai");
 
-
 const dgApiKey = process.env.DEEPGRAM_API_KEY;
 
 const deepgram = createClient(dgApiKey)
@@ -55,12 +54,13 @@ async function generate(state) {
   return result.response.text();
 }
 
-app.post('/hello', (req, res) => {
-  res.send(req.body);
+app.post('/move', (req, res) => {
+  console.log(req.body)
+  res.json({turn: '175'});
 });
 
 
-app.post('/api/data', upload.single('audio'), async (req, res) => {
+app.post('/talk', upload.single('audio'), async (req, res) => {
   try {
 
     const file = req.file;

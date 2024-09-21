@@ -38,7 +38,7 @@ Intel Brain is a powerful Node.js Express API that enables seamless control and 
 4. **Run the server:**
 
     ```bash
-    node api.js
+    node server.js
     ```
 
     The API will now be running locally on `http://localhost:8000`.
