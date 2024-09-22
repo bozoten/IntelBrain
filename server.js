@@ -55,8 +55,12 @@ async function generate(state) {
 }
 
 app.post('/move', (req, res) => {
-  console.log(req.body)
-  res.json({turn: '175'});
+  console.log(req.body);
+
+  // Randomly select 0 or 175
+  const turn = Math.random() < 0.5 ? '0' : '175';
+
+  res.json({ turn: turn });
 });
 
 
