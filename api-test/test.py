@@ -1,7 +1,7 @@
 import requests
 import sys
 
-def transcribe_audio(file_path, server_url="http://localhost:8000/api/data"):
+def transcribe_audio(file_path, server_url="http://localhost:8000/talk"):
     try:
         with open(file_path, 'rb') as audio_file:
             files = {'audio': audio_file}
