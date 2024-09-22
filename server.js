@@ -109,7 +109,7 @@ app.post('/talk', upload.single('audio'), async (req, res) => {
 
 
 
-const PORT = process.env.PORT ||8000;
+const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`The Server is running on port ${PORT}`);
 });
