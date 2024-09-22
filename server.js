@@ -60,7 +60,7 @@ app.post('/move', (req, res) => {
   // Randomly select 0 or 175
   const turn = Math.random() < 0.5 ? '0' : '175';
 
-  res.json({ turn: turn });
+  res.json({ angle: turn });
 });
 
 
