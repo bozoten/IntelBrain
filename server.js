@@ -54,13 +54,16 @@ async function generate(state) {
   return result.response.text();
 }
 
-app.post('/move', (req, res) => {
-  console.log(req.body);
+app.post('/move', async (req, res) => {
+  const request = req.body;
+  const systemPr = "You're opearting a robot arm, the current state of the machine is given below, return only json with the next angles it should move to for the given task. RETURN ONLY JSON IN THE SAME FORMAT";
 
+  const response = await generate(systemPr + JSON.stringify(request));
+  console.log(systemPr + JSON.stringify(request));
   // Randomly select 0 or 175
-  const turn = Math.random() < 0.5 ? '0' : '175';
+  // const turn = Math.random() < 0.5 ? '0' : '175';
 
-  res.json({ angle: turn });
+  res.json(response);
 });
 
 
